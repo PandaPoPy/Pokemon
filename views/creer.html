@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+		<title>index</title>
+        <script type="text/javascript" src="<?= $this->url('jquery-2.1.1.min.js') ?>"></script>
+        <script type="text/javascript" src="<?= $this->url('script.js') ?>"></script>
+
+        <link rel="stylesheet" type="text/css" href="<?= $this->url('style/style.css') ?>" />
+	</head>
+	<body>
+    <div class="header"></div>
+
+    <?php if($erreur): ?>
+    <p class="erreur"><?= $erreur ?></p>
+    <?php endif ?>
+    <form method="post">
+        <div><label for="nom">Nom : </label><input type="text" name="nom"
+            id="nom" /></div>
+        <div><label for="espece">Espèce : </label><select name="espece"
+                id="espece">
+            <?php foreach($especes as $espece): ?>
+                <option value="<?= $espece['id'] ?>"><?= $espece['nom'] ?></option>
+            <?php endforeach ?>
+        </select></div>
+        <div><input type="submit" value="Créer" /></div>
+    </form>
+
+	</body>
+</html>

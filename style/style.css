@@ -1,0 +1,163 @@
+body{
+
+	font-family: arial;
+	font-size: 12px;
+	background: url('../images/background3.jpg');
+	background-repeat: no-repeat;
+	background-color: #2162B4;
+	background-position: -30px 0px;
+}
+
+.header{
+	background: url('../images/logo.png');
+	background-repeat: no-repeat;
+
+	width: 450px;
+	margin: 0 auto;
+	height: 150px;
+}
+
+.cartes{
+	width: 750px;
+	margin: 0 auto;
+}
+
+.carte{
+	width: 150px;
+	height: 200px;
+	border: solid 3px #999;
+	padding: 5px;
+	border-radius: 7px;
+	margin-right: 20px;
+	float: left;
+	background-color: #FFF;
+}
+
+.carte a{
+	text-decoration: none;
+}
+
+.carte a:hover{
+	width: 150px;
+	height: 200px;
+	padding: 0px;
+	border-radius: 0px;
+	margin-right: 10px;
+	float: left;
+	background-color: #F9BB2E;
+}
+
+h1{
+	font-size: 21px;
+	color: #666;
+	text-align: center;
+}
+
+.plateau{
+	width: 580px;
+	height: 250px;
+	margin: 200px auto;
+	position: relative;
+}
+
+.pkmn1{
+	width: 160px;
+	height: 200px;
+	border: solid 3px #999;
+	padding: 0px;
+	border-radius: 7px;
+	margin-right: 10px;
+	float: left;
+	background-color: #F9BB2E;
+	z-index: 3;
+	position: absolute;
+	top:30px;
+	left: 20px;
+}
+
+.pkmn1 a{
+	text-decoration: none;
+}
+
+.pkmn2{
+	width: 160px;
+	height: 200px;
+	border: solid 3px #999;
+	padding: 0px;
+	border-radius: 7px;
+	margin-right: 10px;
+	float: left;
+	background-color: #F9BB2E;
+	z-index: 2;
+	position: absolute;
+	top:30px;
+	left: 360px;
+}
+
+.pkmn2 a{
+	text-decoration: none;
+}
+
+.attaque{
+	width: 130px;
+	height: 30px;
+	float: left;
+	position: absolute;
+	top:100px;
+	left: 202px;
+	font-size: 27px;
+	font-weight: bold;
+	color: #FFF;
+	background-color: #911790;
+	border: solid 3px #FFF;
+	border-radius: 7px;
+	padding-left: 7px;
+	padding-top: 
+}
+
+.attaque a{
+	text-decoration: none;
+	color: #FFF;
+	clear: both;
+	text-align: center;
+}
+
+
+
+.reinit a{
+	text-align: center;
+	font-size: 21px;
+	color: #FFF;
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 136px;
+	height: 50px;
+	background-color: #8BAB08;
+	cursor: pointer;
+	left: 202px;
+	top: 150px;
+	position: relative;
+	border-radius: 7px;
+	border: solid 3px #FFF;
+}
+
+.scores{
+	width: 465px;
+	height: 80px;
+	border-radius: 7px;
+	z-index: 1;
+	position: absolute;
+	top:250px;
+	left: 20px;
+	color: #000;
+	background-color: #FFF;
+	opacity: 0.6;
+	padding: 20px;
+}
+
+.journal{
+	text-align: center;
+	font-size: 14px;
+}
+

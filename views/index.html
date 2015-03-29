@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+		<title>index</title>
+        <script type="text/javascript" src="<?= $this->url('jquery-2.1.1.min.js') ?>"></script>
+        <script type="text/javascript" src="<?= $this->url('script.js') ?>"></script>
+
+        <link rel="stylesheet" type="text/css" href="<?= $this->url('style/style.css') ?>" />
+	</head>
+	<body>
+    <div class="header"></div>
+
+    <?php if(count($messages)): ?>
+        <ul class="messages">
+            <?php foreach($messages as $msg): ?>
+            <li><?= $msg ?></li>
+            <?php endforeach ?>
+        </ul>
+    <?php endif ?>
+
+
+    <div class="cartes">
+
+        <?php foreach($pokemons as $pkmn): ?>
+            <?php if(!$pkmn->en_combat()): ?>
+
+                <div class="carte">
+                    <a href="<?= $this->url('ajout_pokemon', ['nom' =>
+                    $pkmn->nom]) ?>">
+                    <h1><?= $pkmn->nom ?></h1><img src="<?=
+                    $this->url('images/'.$pkmn->image) ?>"></a>
+                </div>
+            <?php else: ?>
+
+                <div class="carte"><h1><?= $pkmn->nom ?></h1><img src="<?=
+                    $this->url('images/'.$pkmn->image) ?>"></div>
+            <?php endif; ?>
+        <?php endforeach ?>
+
+    </div>
+    <div class="plateau">
+        <?php if(isset($combat['pkmn1'])): ?>
+
+        <div class="pkmn1">
+            <a href="<?= $this->url('sortir_pokemon', ['nom' => $combat['pkmn1']->nom]) ?>">
+                 <h1><?= $combat['pkmn1']->nom ?> </h1><img src="<?=
+                 $this->url('images/'.$combat['pkmn1']->image) ?>">
+            </a>
+        </div>
+        <?php endif ?>
+
+        <div class="combat">
+
+        <?php if(isset($combat['pkmn1'], $combat['pkmn2'])): ?>
+
+        <div class="attaque"><a href="<?= $this->url('combat') ?>">Combat !</a>
+
+
+            
+        </div>
+        
+        <?php endif ?>
+
+        </div>
+
+        <?php if(isset($combat['pkmn2'])): ?>
+
+        <div class="pkmn2">
+            <a href="<?= $this->url('sortir_pokemon', ['nom' => $combat['pkmn2']->nom]) ?>">
+                <h1><?= $combat['pkmn2']->nom ?></h1><img src="<?=
+                $this->url('images/'.$combat['pkmn2']->image) ?>">
+            </a>
+        </div>
+        <?php endif ?>
+
+        <?php if(isset($combat['journal'])): ?>
+
+        <p class="scores"><?= $combat['journal'] ?></p>
+        <div class="reinit"><a href="<?= $this->url('reinit', ['action' => 'reinit']) ?>">Rejouer</a></div>
+
+        <?php endif ?>
+
+    </div>
+
+    <div><a href="<?= $this->url('creer') ?>"><button>Créer un Pokémon</button></a></div>
+
+	</body>
+</html>

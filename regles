@@ -1,0 +1,53 @@
+- propriétés d’un pokémon :
+    - niveau
+    - valeur d’attaque
+    - valeur de défense
+    - points d’expérience
+    - points d’expérience pour passer au niveau suivant
+    - type élémentaire
+    - points de vie
+    - points de vie maximum
+    - nom
+    - image
+
+- types :
+    $affinites = [
+                  'feu' => ['feu' => 1, 'eau' => .5, 'plante' => 2],
+                  'eau' => ['feu' => 2, 'eau' => 1, 'plante' => .5],
+                  'plante' => ['feu' => .5, 'eau' => 2, 'plante' => 1]
+                  ];
+
+- comment se déroule un combat ?
+    - 2 pokémons s’affrontent
+    - Le premier pokémon sélectionné par le joueur a l’initiative.
+    - on calcule les dégâts infligés :
+        - coef = modificateur de dégâts selon l’affinité entre l’attaquant et le
+          défenseur
+        - degats = (attaquant->attaque * coef) - défenseur->defense
+        - si les dégâts sont négatifs, ils sont ramenés à 0
+    - on retire degats points de vie au défenseur
+    - si les points de vie du défenseur sont à 0, il est KO
+        - l’attaquant reçoit de l’expérience : 100 points * (defenseur->niveau /
+          attaquant->niveau)
+        - le nombre de points d’expérience requis pour passer au niveau suivant
+          est : 100 * 1.5 * niveau à atteindre
+        - si on gagne un niveau, les caractéristiques vie, vie max, attaque,
+          défense augmentent de 1. On recalcule les points d’expérience max, et
+          on passe l’expérience actuelle à 0.
+    - sinon, le défenseur devient attaquant (on retourne au point 3, mais on
+      n’exécute pas le point 5)
+    - c’est au joueur de choisir le prochain tour de jeu, avec 2 pokémons (ceux
+      venant de combattre sont éligibles).
+
+- chaque famille de pokémon (Pikachu, Salamèche, etc) dispose de
+  caractéristiques de base (au niveau 1) propres.
+- pour le prototype, les pokémons créés (à partir des classes) seront simplement
+  sauvegardés en session, on n’utilise pas de base de données.
+
+- le prototype aura pour but de :
+    - créer les différentes classes et implémenter les règles
+    - instancier 2 pokémons de votre choix
+    - exécuter 3 tours de combat entre les 2 pokémons
+    - pour chaque action de combat, afficher ce qu’il se passe (par exemple,
+      « Pikachu attaque Carapuce », « Il inflige 10 points de dégâts »,
+      « Carapuce est KO », « Pikachu gagne 100 points d’expérience »)
